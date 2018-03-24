@@ -1,8 +1,12 @@
-var url  = require("url"),
-fs=require("fs"),
-http=require("http"),
-path = require("path");
-http.createServer(function (req, res) {
+
+var fs=require("fs")
+
+var express = require('express')
+var path = require('path')
+var app = express()
+
+app.use(express.static(path.join(__dirname, '/')));
+app.get('/',function (req, res) {
 
 	var pathname = "index.html"
 	
@@ -11,5 +15,5 @@ http.createServer(function (req, res) {
 		res.end(data);
 	})
 
-}).listen(8888);
-console.log("Server running at localhost");
+}).listen(3000);
+console.log("Server running at 3000");
