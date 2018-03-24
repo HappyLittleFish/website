@@ -1,16 +1,4 @@
 {
-	"apps": [
-		{
-			"name": "Website",
-			"script": "app.js",
-			"env": {
-				"COMMON_VARIABLE": "true"
-			},
-			"env_production": {
-				"NODE_ENV": "production"
-			}
-		}
-	],
 	"deploy": {
 		"production": {
 			"user": "littlefish",
