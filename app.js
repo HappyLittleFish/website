@@ -1,15 +1,15 @@
-var http = require("http");
-//设置主机名
-var hostName = '127.0.0.1';
-//设置端口
-var port = 3000;
-//创建服务
-var server = http.createServer(function(req,res){
-	res.statusCode = 200
-    res.setHeader('Content-Type','text/plain');
-    res.end("hello nodejs");
+var url  = require("url"),
+fs=require("fs"),
+http=require("http"),
+path = require("path");
+http.createServer(function (req, res) {
 
-});
-server.listen(port,hostName,function(){
-    console.log(`服务器运行在http://${hostName}:${port}`);
-});
+	var pathname = "index.html"
+	
+	res.writeHead(200, {"Content-Type": "text/html"});
+	fs.readFile(pathname,function (err,data){
+		res.end(data);
+	})
+
+}).listen(8888);
+console.log("Server running at localhost");
