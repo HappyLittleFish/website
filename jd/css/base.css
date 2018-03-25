@@ -1,0 +1,108 @@
+
+/*工具样式*/
+.center-block{
+        display: block;
+}
+
+.pull-right {
+        float: right !important;
+}
+
+.pull-left {
+        float: left !important;
+}
+
+.text-right {
+        text-align: right !important;
+}
+
+.text-left {
+        text-align: left !important;
+}
+
+.text-center {
+        text-align: center !important;
+}
+
+.hide {
+        display: none;
+}
+
+.show {
+        display: block;
+}
+
+.invisible {
+        visibility: hidden;
+}
+
+.text-hide {
+        font: 0/0 a;
+        color: transparent;
+        text-shadow: none;
+        background-color: transparent;
+        border: 0;
+}
+
+.clearfix:after{
+        content:"";
+        display:table;
+        clear:both;
+}
+
+/*基本默认值*/
+::selection{
+        background-color: #b3d4fc;
+        text-shadow: none;
+}
+ul{
+        margin:0;
+        padding:0;
+}
+li{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+}
+h3 {
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: #666;
+}
+a:hover{
+    color:#c81623;
+}
+input{
+    border: 0;
+}
+body {
+    -webkit-font-smoothing: antialiased;
+    background-color: #f6f6f6;
+    font: 12px/1.5 Microsoft YaHei,tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
+    color: #666;
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+.center-container{
+    width: 1190px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+@font-face {
+    font-family:fzzhengheis-el-gbregular;
+    src:url(../img/fzzxh-webfont.eot);
+    src:url(../img/fzzxh-webfont.eot?#iefix) format("embedded-opentype"),url(../img/fzzxh-webfont.woff) format("woff"),url(../img/fzzxh-webfont.ttf) format("truetype"),url(../img/fzzxh-webfont.svg#fzzhengheis-el-gbregular) format("svg");
+    font-weight:400;
+    font-style:normal;
+}
+@font-face {
+    font-family:iconfont;
+    src:url(../img/iconfont.eot);
+    src:url(../img/iconfont.eot#iefix) format('embedded-opentype'),url(../img/iconfont.woff) format('woff'),url(../img/iconfont.ttf) format('truetype'),url(../img/iconfont.svg#iconfont) format('svg');
+}
