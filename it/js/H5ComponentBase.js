@@ -4,7 +4,7 @@ var H5ComponentBase = function(name,cfg){
 	var id = ('h5_c_' + Math.random()).replace('.','');
 
 	var cls = 'h5_component_' + cfg.type;
-	var component = $('<div class="h5_component ' +cls+' h5_component_name_' + name +'" id="'+ id +'">');
+	var component = $('<div class="h5_component ' +cls +' h5_component_name_' + name +'" id="'+ id +'">');
 
 	cfg.text && component.text(cfg.text);
 	cfg.width && component.width(cfg.width/2);
@@ -29,7 +29,7 @@ var H5ComponentBase = function(name,cfg){
 			component.addClass(cls+'_load').removeClass(cls+'_leave');
 			cfg.animateIn && component.animate(cfg.animateIn);
 		},cfg.delay || 0);
-		return false; //事件不向上冒泡
+		return false;
 	});
 	component.on('onLeave',function(){
 		setTimeout(function(){

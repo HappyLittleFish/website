@@ -36,7 +36,7 @@ var H5 = function(){
 			component = new H5ComponentBar(name,cfg);
 			break;
 			case 'bar_v':
-			component = new H5ComponentBarV(name,cfg);
+			component = new H5ComponentBar_v(name,cfg);
 			break;
 			case 'pie':
 			component = new H5ComponentPie(name,cfg);
@@ -67,13 +67,14 @@ var H5 = function(){
 				$(this).find('.h5_component').trigger('onLeave');
 			},
 			afterLoad:function(anchorLink,index){
+				console.log($(this));
 				$(this).find('.h5_component').trigger('onLoad');
 			},
 		});
 		this.page[0].find('.h5_component').trigger('onLoad');
 		this.el.show();
 		if(firstPage){
-			$.fn.fullpage.moveTo(firstPage); 
+			$.fn.fullpage.moveTo(firstPage);
 		}
 	};
 	this.loader = typeof H5_loading == 'function' ? H5_loading :this.loader;

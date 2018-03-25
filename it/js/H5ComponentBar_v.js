@@ -8,7 +8,7 @@ var H5ComponentBar_v =function ( name, cfg ) {
   //  任务二：(2) 完成 width 每个柱图中项目的宽度计算。（补全 var width = ???）
   var width = ( 100 / cfg.data.length ) >> 0 ;
   component.find('.line').width( width + '%');
-  
+
   $.each( component.find('.rate') ,function(){
       var w = $(this).css('width');
       //  任务二：(3) 把进度区的宽度重设为高度，并且取消原来的宽度

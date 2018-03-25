@@ -148,13 +148,13 @@
 					.addComponent('caption',{text:'核心理念'})
 					.addComponent('text',{
 						width:500,
-						height:30,
+						height:60,
 						center:true,
-						text: 'IT教育网=只学有用的',
+						text: 'IT教育网=行业领先',
 						css: {
 							opacity:0,textAlign:'center',color:'red',fontSize:'26px'
 						},
-						animateIn: {opacity:1,top: 120},
+						animateIn: {opacity:1,top: 150},
 						animateOut: {opacity:0,top:240},
 					})
 					.addComponent('description',{
@@ -169,11 +169,10 @@
 							fontSize: '15px',
 							lineHeight: '18px',
 							textAlign: 'justify',
-							top:240,
 						},
-						text: '2013年,IT教育网的诞生引领中国IT职业教育进入新时代。<br/>高质量实战课程、全新教学模式、实时互动学习，以领先优势打造行业品牌。迄今为止，IT教育网已成为中国规模最大、互动性最高的IT技能学习平台。',
-						animateIn: {opacity:1,top:160},
-						animateOut: {opacity:0,top:240},
+						text: "2013年,IT教育网的诞生引领中国IT职业教育进入新时代。高质量实战课程、全新教学模式、实时互动学习，以领先优势打造行业品牌。迄今为止，IT教育网已成为中国规模最大、互动性最高的IT技能学习平台。",
+						animateIn: {opacity:1,top:220},
+						animateOut: {opacity:0,top:260},
 						delay:1000,
 					})
 					.addComponent('people',{
@@ -185,7 +184,7 @@
 							opacity:0,
 							bottom:0,
 						},
-						animateIn: {opacity:1,bottom:40},
+						animateIn: {opacity:1,bottom:80},
 						animateOut: {opacity:0,bottom:0},
 						delay:500,
 					})
@@ -231,10 +230,11 @@
 						type : 'pie',
 						width : 300,
 						height : 300,
+						center : true,
 						data: [
 							['Android', .3 , '#ff7676',],
 							['iOS', .2 ],
-							['Cocos2d-x', .25 ],
+							['Html5', .25 ],
 							['Unity-3D', .1 ],
 							['wechat', .15 ],
 						],
@@ -250,7 +250,6 @@
 							opacity : 0,
 							top : 200,
 						},
-						center : true,
 					})
 					.addComponent('msg',{
 						text: '移动开发课程占到40%',
@@ -302,17 +301,15 @@
 			.addPage()
 					.addComponent('caption',{text:'前端开发课程'})//bar
 					.addComponent('bar',{
-						type : 'bar',
+						type : 'bar_v',
 						width : 530,
 						height : 600,
 						data: [
 							['Javascript', .4 , '#ff7676',],
-							['HTML/CSS', .3 ],
-							['CSS3', .1 ],
 							['HTML5', .2 ],
+							['CSS3', .1 ],
+							['HTML5', .15 ],
 							['jQuery', .15 ],
-							['Bootstrap', .08 ],
-							['ReactJs', .01 ],
 						],
 						css : {
 							top : 100,
@@ -374,11 +371,11 @@
 						delay:1600,
 					})
 			.addPage()
-					.addComponent('caption',{text:'课程报名人数过万'})//ring
+					.addComponent('caption',{text:'课程报名人数过万'})
 					.addComponent('ring-all',{
 						type : 'ring',
-		                width : 400,
-		                height : 400,
+		                width : 300,
+		                height : 300,
     		            center : true,
 		                data:[['总课程' , .7  ,'#ff7676']],
 		                css : {top:120,opacity:0,fontSize:'30px'},
@@ -398,7 +395,7 @@
 						type : 'ring',center:true,
 		                width : 140,
 		                height : 140,
-		                data:[['前端开发' , .4  ,'#yellowblue']],
+		                data:[['前端开发' , .3  ,'orange']],
 		                css : {left:30,bottom:110,opacity:0,fontSize:'12px'},
 		                animateIn:{opacity:1,},
 		                animateOut:{opacity:0,},
@@ -407,35 +404,35 @@
 						type : 'ring',
 		                width : 140,
 		                height : 140,
-		                data:[['后端开发' , .3  ,'#yellowblue']],
+		                data:[['后端开发' , .3  ,'orange']],
 		                css : {left:30,bottom:110,opacity:0,fontSize:'12px'},
 		                animateIn:{opacity:1,},
 		                animateOut:{opacity:0,},
 					})
-					.addComponent('ring-2',{
+					.addComponent('ring-3',{
 						type : 'ring',
 		                width : 140,
 		                height : 140,
-		                data:[['移动开发' , .2  ,'#yellowblue']],
+		                data:[['移动开发' , .2  ,'orange']],
 		                css : {right:30,bottom:110,opacity:0,fontSize:'12px'},
 		                animateIn:{opacity:1,},
 		                animateOut:{opacity:0,},
 					})
-					.addComponent('ring-2',{
+					.addComponent('ring-4',{
 						type : 'ring',
 		                width : 140,
 		                height : 140,
-		                data:[['大数据' , .3  ,'#yellowblue']],
+		                data:[['大数据' , .1  ,'orange']],
 		                css : {left:70,bottom:40,opacity:0,fontSize:'12px'},
 		                animateIn:{opacity:1,},
 		                animateOut:{opacity:0,},
 					})
-					.addComponent('ring-2',{
+					.addComponent('ring-5',{
 						type : 'ring',
 		                width : 140,
 		                height : 140,
-		                data:[['云计算' , .3  ,'#yellowblue']],
-		                css : {right:70,bottom:110,opacity:0,fontSize:'12px'},
+		                data:[['云计算' , .1  ,'orange']],
+		                css : {right:70,bottom:40,opacity:0,fontSize:'12px'},
 		                animateIn:{opacity:1,},
 		                animateOut:{opacity:0,},
 					})
@@ -448,7 +445,7 @@
 		                width : 300,
 		                height : 300,
 		                data:[
-		                    ['中级' , .4  ,'#ff7676'],
+		                    ['中级' , .5  ,'#ff7676'],
 		                    ['初级' , .2  ,'#ffa3a4', 0 ,'-60%'],
 		                    ['高级' , .3  ,'#99c1ff', '50%' ,'120%']
 		                ],

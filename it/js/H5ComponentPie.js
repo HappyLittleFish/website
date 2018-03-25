@@ -54,10 +54,12 @@ var H5ComponentPie = function(name,cfg){
     ctx.arc(r,r,r,sAngle,eAngle);
     ctx.fill();
     ctx.stroke();
-    sAngle = eAngle;
-
+    // 如果是单圆环，就不用变更
+    if(step != 1){
+      sAngle = eAngle;
+    }
     //  加入所有的项目文以及百分比
-    
+
     var text = $('<div class="text">');
     text.text(cfg.data[i][0]);
     var per = $('<div class="per">');
@@ -97,9 +99,6 @@ var H5ComponentPie = function(name,cfg){
   $(cns).css('zIndex',3);
   component.append(cns);
 
-  var r = w/2;
-  var step = cfg.data.length;
-
   ctx.fillStyle = '#eee';
   ctx.strokeStyle = '#eee';
   ctx.lineWidth = 1;
@@ -112,20 +111,19 @@ var H5ComponentPie = function(name,cfg){
     ctx.beginPath();
     ctx.moveTo(r,r);
     if(per <= 0){
-      ctx.arc(r,r,r,sAngle,sAngle+2*Math.PI);
+      ctx.arc(r,r,r,0,2*Math.PI);
+      component.find('.text').css('opacity',0);
     }else{
       ctx.arc(r,r,r,sAngle,sAngle+2*Math.PI * per,true);
-
     }
 
     ctx.fill();
     ctx.stroke();
 
     if( per >= 1){
+      H5ComponentPie.resortPie(component.find('.text'));
       component.find('.text').css('opacity',1);
-    }
-    if( per <= 0){
-      component.find('.text').css('opacity',0);
+      ctx.clearRect(0,0,w,h);
     }
 
   }
@@ -140,7 +138,7 @@ var H5ComponentPie = function(name,cfg){
       setTimeout(function(){
         s += 0.01;
         draw(s);
-      },i*10+500)
+      },i*10+300)
     }
   });
 
@@ -157,3 +155,63 @@ var H5ComponentPie = function(name,cfg){
 
   return component;
 }
+
+//  重排项目文本元素
+H5ComponentPie.resortPie = function( list){
+  //  1.检测是否相交
+  var compare = function( domA, domB){
+
+    //  计算机domA、domB的x轴、y轴的投影
+    var offsetA = $(domA).offset();
+    var offsetB = $(domB).offset();
+
+    var shadowA_x = [offsetA.left,offsetA.left + $(domA).width()];
+    var shadowA_y = [offsetA.top,offsetA.top + $(domA).height()];
+
+    var shadowB_x = [offsetB.left,offsetB.left + $(domB).width()];
+    var shadowB_y = [offsetB.top,offsetB.top + $(domB).height()];
+
+    var intersect_x = (shadowA_x[0] > shadowB_x[0] && shadowA_x[0] < shadowB_x[1])
+                      || (shadowA_x[1] > shadowB_x[0] && shadowA_x[1] < shadowB_x[1])
+
+    var intersect_y = (shadowA_y[0] > shadowB_y[0] && shadowA_y[0] < shadowB_y[1])
+                      || (shadowA_y[1] > shadowB_y[0] && shadowA_y[1] < shadowB_y[1])
+
+    return intersect_x && intersect_y;
+  }
+
+  //  2.错开重排
+  var reset = function(domA,domB){
+    if( $(domA).css('top') != 'auto'){
+      $(domA).css('top',parseInt($(domA).css('top')) + $(domB).height() );
+    }
+
+    if( $(domA).css('bottom') != 'auto'){
+      $(domA).css('bottom',parseInt($(domA).css('bottom')) + $(domB).height() );
+    }
+
+  }
+
+  //  定义将要重排的元素
+  var willReset = [list[0]];
+
+  $.each(list,function(i,domTarget){
+
+    if( compare(willReset[willReset.length-1],domTarget)){
+      willReset.push(domTarget);
+    }
+
+    if(willReset.length > 1){
+      $.each(willReset,function(i,domA){
+
+        if(willReset[i+1]){
+          reset(domA,willReset)
+        }
+      });
+      H5ComponentPie.resortPie( willReset);
+    }
+  });
+}
+
+
+
