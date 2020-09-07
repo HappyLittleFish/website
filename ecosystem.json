@@ -13,11 +13,11 @@
 	],
 	"deploy": {
 		"production": {
-			"user": "littlefish",
-			"host": ["118.126.107.56"],
+			"user": "ubuntu",
+			"host": ["106.55.58.185"],
 			"ref": "origin/master",
 			"repo": "git@gitee.com:happylittlefish/website.git",
-			"path": "/www/website/production",
+			"path": "/var/www/website/production",
 			"ssh_options": "StrictHostKeyChecking=no",
 			"env": {
 				"NODE_ENV": "production"
