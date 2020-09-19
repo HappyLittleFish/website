@@ -8,5 +8,15 @@
 	/*font-size: 32px;*/
 	/*vertical-align: middle;*/
 	line-height: 40px;
-	/*background-color: #3C325C;*/
+	/* background-color: #2a3d66; */
+	/* background-color: #4c4c4c; */
+}
+
+.footer {
+	text-align: center;
+	padding: 5px 0;
+}
+
+.footer a {
+	border-bottom: none;
 }
